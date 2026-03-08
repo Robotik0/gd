@@ -1,137 +1,67 @@
-<body data-new-gr-c-s-check-loaded="14.1275.0" data-gr-ext-installed="" style="padding: 0px;" data-new-gr-c-s-loaded="14.1275.0"><link rel="stylesheet" href="/game.css"><!--Game--><div id="gameContainer" style="padding: 0px; margin: 0px; border: 0px; position: relative; background: rgb(35, 31, 32);"><canvas id="#canvas" width="1388" height="923" style="width: 100%; height: 100%; cursor: default;"></canvas></div><div id="loader" style="display: none;"><img class="logo" src="image/loading.png?v=1"><div class="spinner" style="display: none;"></div><div class=" pos_progress"><div class="progress" style="display: block;"><div class="posfull"><img class="full" src="image/process_bar_back.png" style="transform: scaleX(1);"></div><div class="posbox"><img class="box_process" src="image/process_bar_front.png"></div></div></div>	<script>function UnityCallPlayJs() {
- console.log("untiy call play game");
- }
- function UnityCallAgainJs() {
- console.log("unity call again");
- }
- function UnityCallReturnHomeJs() {
- console.log("untiy call return home");
- }
- function UnityCallChooseLevelJs() {
- console.log("untiy call choose level");
- }
- function UnityCallCloseLeaderboardJs() {
- console.log("untiy call close leaderboard");
- }
- function UnityCallChooseCharacterJs() {
- console.log("untiy call choose character");
- }
- function UnityCallChooseColorJs() {
- console.log("untiy call choose color");
- }
- function UnityCallEndgameJs() {
- console.log("untiy call end game");
- }
- function UnityCallContinueJs() {
- console.log("untiy call continue");
- }
- function UnityCallChangeModeJs() {
- console.log("untiy call change mode");
- }
-	function UnityCallPauseGameJs() {
- console.log("untiy call pause game");
- }
-	function UnityCallChangeLevelJs() {
- console.log("untiy call change level");
- }
- function UnityCallLevelUpJs() {
- console.log("untiy call level up");
- }</script><script src="Build/UnityLoader.js"></script><script>UnityLoader.compatibilityCheck=function(e,t,r){t();};
- var gameInstance = UnityLoader.instantiate("gameContainer", "Build/geometrydashonline.io.json", {onProgress: UnityProgress});
- function UnityProgress(gameInstance, progress) {
- if (!gameInstance.Module) {
- return;
- }
- const loader = document.querySelector("#loader");
- if (!gameInstance.progress) {
- const progress = document.querySelector("#loader .progress");
- progress.style.display = "block";
- gameInstance.progress = progress.querySelector(".full");
- loader.querySelector(".spinner").style.display = "none";
- }
- gameInstance.progress.style.transform = `scaleX(${progress})`;
- if (progress === 1 && !gameInstance.removeTimeout) {
- gameInstance.removeTimeout = setTimeout(function() {
- loader.style.display = "none";
- }, 2000);
- }
- }
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="shortcut icon" href="geometry dash.jpg" type="image">
+    <title>Geometry dash | Alexx743</title>
+</head>
+<body>
 
-var theElement = document.getElementById("gameContainer");
-theElement.addEventListener("mouseup", tapOrClick, false);
-theElement.addEventListener("touchend", tapOrClick, false);
+    <h2>Geometry dash</h2>
 
-function tapOrClick(event) {
- fullScreenAPI();
- event.preventDefault();
- return false;
- }
- function HiddenClass(instane_game) {
- var widthPage = window.innerWidth;
- var heightPage = window.innerHeight;
- if (heightPage > widthPage) {
- document.getElementById('orientation').style.display = "block"; 
- document.getElementById("gameContainer").style.display = "none"; 
- gameInstance.SendMessage('AudioMainController', 'JSCallUnity', 0);
- }
- else{
- document.getElementById('orientation').style.display = "none";
- document.getElementById("gameContainer").style.display = "block";
- gameInstance.SendMessage('AudioMainController', 'JSCallUnity', 1);
- }
- }
- function fullScreenAPI(){
- var ua = navigator.userAgent.toLowerCase();
- var isAndroid = ua.indexOf("android") > -1;
- if(isAndroid) {
- GoFullScreen(document.documentElement);
- }
- }
-function GoFullScreen(element) {
- if (!document.fullscreenElement && !document.mozFullScreenElement && !document.webkitFullscreenElement && !document.msFullscreenElement ) {
- if(element.requestFullscreen && document.fullscreenEnabled){
- element.requestFullscreen();
- } 
- else if(element.mozRequestFullScreen){
- element.mozRequestFullScreen();
- }
- else if(element.webkitRequestFullscreen){
- element.webkitRequestFullscreen();
- } 
- else if(element.msRequestFullscreen){
- element.msRequestFullscreen();
- }
- }
- }</script><!--End Game-->		<script src="/themes/geometrydashonline.io/rs/js/jquery-3.4.1.min.js"></script><script>function ToggleInfo() {
- if ($('button.hide-main-panel').children('i')[0].textContent != 'Info') {
- $("div.main-panel").css('width', '0px');
- $("div.main-panel-ads").css('display', 'none');
- $("div.main-panel-content").css('display', 'none');
- $('button.hide-main-panel').children('i').html('Info');
- console.log('Info');
- } else {
- $("div.main-panel").css('width', $("div.main-panel").css('max-width'));
- $("div.main-panel-ads").css('display', 'block');
- $("div.main-panel-content").css('display', 'block');
- $('button.hide-main-panel').children('i').html('>>');
- console.log('>>');
- }
- }
- function ShowInfo() {
- $("div.main-panel").css('width', $("div.main-panel").css('max-width'));
- $("div.main-panel-ads").css('display', 'block');
- $("div.main-panel-content").css('display', 'block');
- $('button.hide-main-panel').children('i').html('>>');
- }
- function HideInfo() {
- $("div.main-panel").css('width', '0px');
- $("div.main-panel-ads").css('display', 'none');
- $("div.main-panel-content").css('display', 'none');
- $('button.hide-main-panel').children('i').html('Info');
- }
- $('button.hide-main-panel').click(function () {
- console.log('a');
- ToggleInfo();
- });</script>
+  
+    <div class="topnav">
+        <a href="games.html">
+        <button title="Games" id="Games" class="divbutton"> Games </button> 
+        </a> 
+    
+        <a href="Apps.html">
+        <button title="Apps" id="Apps" class="divbutton"> Apps</button>
+        </a>
+    
+        <a href="index.html">
+        <button title="home" id="home" class="divbutton">home</button>
+        </a>
+    
+        <a href="shooter.html">
+        <button title="shooter" class="divbutton">shooter</button>
+        </a>
+    
+        <a href="sports.html">
+        <button title="sports" class="divbutton">Sports</button>
+        </a>
+    
+        <a href="cars.html">
+        <button title="cars" class="divbutton">Cars</button>
+        </a>
+      </div>
+    .
 
-</div><iframe name="__tcfapiLocator" style="display: none; width: 0px; height: 0px; border: none; z-index: -1000; left: -1000px; top: -1000px;"></iframe><ins class="adsbygoogle adsbygoogle-noablate" data-ad-hi="true" data-adsbygoogle-status="done" style="display: none !important;" data-ad-status="unfilled"><div id="aswift_0_host" style="border: none; height: 0px; width: 0px; margin: 0px; padding: 0px; position: relative; visibility: visible; background-color: transparent; display: inline-block;"><iframe id="aswift_0" name="aswift_0" style="left:0;position:absolute;top:0;border:0;width:undefinedpx;height:undefinedpx;min-height:auto;max-height:none;min-width:auto;max-width:none;" sandbox="allow-forms allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts allow-top-navigation-by-user-activation" frameborder="0" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" allow="attribution-reporting; run-ad-auction" src="https://pagead2.googlesyndication.com/pagead/ads?gdpr=1&amp;us_privacy=1---&amp;gdpr_consent=CQgsikAQgsikAEsACBENCVFgAAAAAEPgACpoAAAWEQD-F2I2EKFEGCuQUYIYBCuACAAxYBgAAwCBgAAGCQgQAgFJIIkCAEAIEAAEAAAQAgCAABQEBAAAIAAAAAqAACAABgAQCAQAIABAAAAgIAAAAAAEQAAIgEAAAAIAIABABAAAAQAkAAAAAAAAAECAAAAAAAAAAAAAAAAAAIAAEABgAAAAAABEAAAAAAAACAQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAA.ILCIB_C7EbCFCiDJ3IKMEMAhXABBAYsAwAAYBAwAADBIQIAQCkkEaBASAFCACCAAAKASBAAAoCAgAAUAAIAAVAABAAAwAIBAIIEAAgAAAQEAIAAAACIAAEQCAAAAEAEAAkAgAAAIASAAAAAAAAACBAAAAAAAAAAAAAAAABAEAASAAwAAAAAAAiAAAAAAAABAIEAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAABAAAAAAAQAAAE&amp;addtl_consent=2~~dv.61.89.122.161.184.196.230.314.442.445.494.550.576.827.1029.1033.1046.1047.1051.1097.1126.1166.1301.1342.1415.1725.1765.1942.1958.1987.2068.2072.2074.2107.2213.2219.2223.2224.2328.2331.2387.2416.2501.2567.2568.2575.2657.2686.2778.2869.2878.2908.2920.2963.3005.3023.3126.3234.3235.3253.3309.3731.6931.8931.13731.15731.33931&amp;gpp_sid=-1&amp;client=ca-pub-5436783100115706&amp;output=html&amp;adk=1812271804&amp;adf=3025194257&amp;lmt=1772972416&amp;plaf=7%3A2&amp;plat=3%3A128%2C4%3A128%2C9%3A134250504%2C16%3A8388608%2C17%3A32%2C24%3A32%2C25%3A32%2C30%3A1081344%2C32%3A32%2C41%3A32%2C42%3A32%2C43%3A32&amp;format=0x0&amp;url=https%3A%2F%2Fgeometrydashonline.io%2Fgeometry-dash-online&amp;pra=5&amp;aiof=9&amp;asro=0&amp;itsi=-1&amp;aiapm=0.1542&amp;aiapmd=0.1423&amp;aiapmi=0.16&amp;aiapmid=1&amp;aiact=0.0001&amp;aiactd=0.0001&amp;aicct=0.0001&amp;aicctd=0.0001&amp;ailct=0.0001&amp;ailctd=0.0001&amp;aimart=4&amp;aimartd=4&amp;aieuf=1&amp;aicrs=1&amp;uach=WyJXaW5kb3dzIiwiMTAuMC4wIiwieDg2IiwiIiwiMTQ1LjAuNzYzMi4xNjAiLG51bGwsMCxudWxsLCI2NCIsW1siTm90OkEtQnJhbmQiLCI5OS4wLjAuMCJdLFsiR29vZ2xlIENocm9tZSIsIjE0NS4wLjc2MzIuMTYwIl0sWyJDaHJvbWl1bSIsIjE0NS4wLjc2MzIuMTYwIl1dLDBd&amp;abgtt=6&amp;dt=1772972401225&amp;bpp=381&amp;bdt=8650&amp;idt=10163&amp;shv=r20260305&amp;mjsv=m202603040101&amp;ptt=9&amp;saldr=aa&amp;abxe=1&amp;eo_id_str=ID%3D81f1555abf6b1cad%3AT%3D1772917390%3ART%3D1772917390%3AS%3DAA-AfjYPka3AxX5ZldaXQe6V1fJ-&amp;nras=1&amp;correlator=5696458229888&amp;frm=20&amp;pv=2&amp;u_tz=60&amp;u_his=2&amp;u_h=864&amp;u_w=1536&amp;u_ah=824&amp;u_aw=1536&amp;u_cd=32&amp;u_sd=1.25&amp;dmc=8&amp;adx=-12245933&amp;ady=-12245933&amp;biw=1536&amp;bih=738&amp;scr_x=0&amp;scr_y=0&amp;eid=42531706%2C95378425%2C95381339%2C95383702%2C31097099%2C95384714&amp;oid=2&amp;pvsid=7043375108146953&amp;tmod=1310666395&amp;uas=0&amp;nvt=3&amp;fsapi=1&amp;fc=1920&amp;brdim=-1537%2C55%2C-1537%2C55%2C1536%2C56%2C1538%2C826%2C1536%2C738&amp;vis=1&amp;rsz=%7C%7Cs%7C&amp;abl=NS&amp;fu=32768&amp;bc=31&amp;bz=1&amp;ifi=1&amp;uci=a!1&amp;fsb=1&amp;dtd=14983" data-google-container-id="a!1" tabindex="0" title="Advertisement" aria-label="Advertisement" data-load-complete="true"></iframe></div></ins><iframe name="googlefcPresent" style="display: none; width: 0px; height: 0px; border: none; z-index: -1000; left: -1000px; top: -1000px;"></iframe><iframe name="__uspapiLocator" src="about:blank" style="display: none; width: 0px; height: 0px; border: none; z-index: -1000; left: -1000px; top: -1000px;"></iframe><iframe name="__gppLocator" src="about:blank" style="display: none; width: 0px; height: 0px; border: none; z-index: -1000; left: -1000px; top: -1000px;"></iframe><iframe name="googlefcInactive" src="about:blank" style="display: none; width: 0px; height: 0px; border: none; z-index: -1000; left: -1000px; top: -1000px;"></iframe><iframe name="googlefcLoaded" src="about:blank" style="display: none; width: 0px; height: 0px; border: none; z-index: -1000; left: -1000px; top: -1000px;"></iframe><div style="color-scheme: initial !important; forced-color-adjust: initial !important; mask: initial !important; math-depth: initial !important; position: initial !important; position-anchor: initial !important; text-size-adjust: initial !important; appearance: initial !important; color: initial !important; font: initial !important; font-palette: initial !important; font-synthesis: initial !important; position-area: initial !important; text-orientation: initial !important; text-rendering: initial !important; text-spacing-trim: initial !important; -webkit-font-smoothing: initial !important; -webkit-locale: initial !important; -webkit-text-orientation: initial !important; -webkit-writing-mode: initial !important; writing-mode: initial !important; zoom: initial !important; accent-color: initial !important; place-content: initial !important; place-items: initial !important; place-self: initial !important; alignment-baseline: initial !important; anchor-name: initial !important; anchor-scope: initial !important; animation-composition: initial !important; animation: initial !important; app-region: initial !important; aspect-ratio: initial !important; backdrop-filter: initial !important; backface-visibility: initial !important; background: initial !important; background-blend-mode: initial !important; baseline-shift: initial !important; baseline-source: initial !important; block-size: initial !important; border-block: initial !important; border: initial !important; border-radius: initial !important; border-collapse: initial !important; border-end-end-radius: initial !important; border-end-start-radius: initial !important; border-inline: initial !important; border-start-end-radius: initial !important; border-start-start-radius: initial !important; inset: initial !important; box-decoration-break: initial !important; box-shadow: initial !important; box-sizing: initial !important; break-after: initial !important; break-before: initial !important; break-inside: initial !important; buffered-rendering: initial !important; caption-side: initial !important; caret-animation: initial !important; caret-color: initial !important; caret-shape: initial !important; clear: initial !important; clip: initial !important; clip-path: initial !important; clip-rule: initial !important; color-interpolation: initial !important; color-interpolation-filters: initial !important; color-rendering: initial !important; columns: initial !important; column-fill: initial !important; gap: initial !important; column-rule: initial !important; column-span: initial !important; contain: initial !important; contain-intrinsic-block-size: initial !important; contain-intrinsic-size: initial !important; contain-intrinsic-inline-size: initial !important; container: initial !important; content: initial !important; content-visibility: initial !important; corner-shape: initial !important; corner-block-end-shape: initial !important; corner-block-start-shape: initial !important; counter-increment: initial !important; counter-reset: initial !important; counter-set: initial !important; cursor: initial !important; cx: initial !important; cy: initial !important; d: initial !important; display: initial !important; dominant-baseline: initial !important; dynamic-range-limit: initial !important; empty-cells: initial !important; field-sizing: initial !important; fill: initial !important; fill-opacity: initial !important; fill-rule: initial !important; filter: initial !important; flex: initial !important; flex-flow: initial !important; float: initial !important; flood-color: initial !important; flood-opacity: initial !important; grid: initial !important; grid-area: initial !important; height: initial !important; hyphenate-character: initial !important; hyphenate-limit-chars: initial !important; hyphens: initial !important; image-orientation: initial !important; image-rendering: initial !important; initial-letter: initial !important; inline-size: initial !important; inset-block: initial !important; inset-inline: initial !important; interactivity: initial !important; interest-delay: initial !important; interpolate-size: initial !important; isolation: initial !important; letter-spacing: initial !important; lighting-color: initial !important; line-break: initial !important; list-style: initial !important; margin-block: initial !important; margin: initial !important; margin-inline: initial !important; marker: initial !important; mask-type: initial !important; math-shift: initial !important; math-style: initial !important; max-block-size: initial !important; max-height: initial !important; max-inline-size: initial !important; max-width: initial !important; min-block-size: initial !important; min-height: initial !important; min-inline-size: initial !important; min-width: initial !important; mix-blend-mode: initial !important; object-fit: initial !important; object-position: initial !important; object-view-box: initial !important; offset: initial !important; opacity: initial !important; order: initial !important; orphans: initial !important; outline: initial !important; outline-offset: initial !important; overflow-anchor: initial !important; overflow-block: initial !important; overflow-clip-margin: initial !important; overflow-inline: initial !important; overflow-wrap: initial !important; overflow: initial !important; overlay: initial !important; overscroll-behavior-block: initial !important; overscroll-behavior-inline: initial !important; overscroll-behavior: initial !important; padding-block: initial !important; padding: initial !important; padding-inline: initial !important; page: initial !important; page-orientation: initial !important; paint-order: initial !important; perspective: initial !important; perspective-origin: initial !important; pointer-events: initial !important; position-try: initial !important; position-visibility: initial !important; print-color-adjust: initial !important; quotes: initial !important; r: initial !important; reading-flow: initial !important; reading-order: initial !important; resize: initial !important; rotate: initial !important; ruby-align: initial !important; ruby-position: initial !important; rx: initial !important; ry: initial !important; scale: initial !important; scroll-behavior: initial !important; scroll-initial-target: initial !important; scroll-margin-block: initial !important; scroll-margin: initial !important; scroll-margin-inline: initial !important; scroll-marker-group: initial !important; scroll-padding-block: initial !important; scroll-padding: initial !important; scroll-padding-inline: initial !important; scroll-snap-align: initial !important; scroll-snap-stop: initial !important; scroll-snap-type: initial !important; scroll-target-group: initial !important; scroll-timeline: initial !important; scrollbar-color: initial !important; scrollbar-gutter: initial !important; scrollbar-width: initial !important; shape-image-threshold: initial !important; shape-margin: initial !important; shape-outside: initial !important; shape-rendering: initial !important; size: initial !important; speak: initial !important; stop-color: initial !important; stop-opacity: initial !important; stroke: initial !important; stroke-dasharray: initial !important; stroke-dashoffset: initial !important; stroke-linecap: initial !important; stroke-linejoin: initial !important; stroke-miterlimit: initial !important; stroke-opacity: initial !important; stroke-width: initial !important; tab-size: initial !important; table-layout: initial !important; text-align: initial !important; text-align-last: initial !important; text-anchor: initial !important; text-autospace: initial !important; text-box: initial !important; text-combine-upright: initial !important; text-decoration: initial !important; text-decoration-skip-ink: initial !important; text-emphasis: initial !important; text-emphasis-position: initial !important; text-indent: initial !important; text-justify: initial !important; text-overflow: initial !important; text-shadow: initial !important; text-transform: initial !important; text-underline-offset: initial !important; text-underline-position: initial !important; text-wrap: initial !important; timeline-scope: initial !important; touch-action: initial !important; transform: initial !important; transform-box: initial !important; transform-origin: initial !important; transform-style: initial !important; transition: initial !important; translate: initial !important; user-select: initial !important; vector-effect: initial !important; vertical-align: initial !important; view-timeline: initial !important; view-transition-class: initial !important; view-transition-group: initial !important; view-transition-name: initial !important; visibility: initial !important; border-spacing: initial !important; -webkit-box-align: initial !important; -webkit-box-decoration-break: initial !important; -webkit-box-direction: initial !important; -webkit-box-flex: initial !important; -webkit-box-ordinal-group: initial !important; -webkit-box-orient: initial !important; -webkit-box-pack: initial !important; -webkit-box-reflect: initial !important; -webkit-line-break: initial !important; -webkit-line-clamp: initial !important; -webkit-mask-box-image: initial !important; -webkit-rtl-ordering: initial !important; -webkit-ruby-position: initial !important; -webkit-tap-highlight-color: initial !important; -webkit-text-combine: initial !important; -webkit-text-decorations-in-effect: initial !important; -webkit-text-fill-color: unset !important; -webkit-text-security: initial !important; -webkit-text-stroke: initial !important; -webkit-user-drag: initial !important; white-space-collapse: initial !important; widows: initial !important; width: initial !important; will-change: initial !important; word-break: initial !important; word-spacing: initial !important; x: initial !important; y: initial !important; z-index: initial !important;"></div><ins class="adsbygoogle adsbygoogle-noablate" data-adsbygoogle-status="done" data-anchor-status="displayed" data-anchor-shown="true" data-ad-status="filled" style="display: none; bottom: 0px; clear: none !important; float: none !important; height: 226px; left: 50%; margin: 0px !important; max-height: none !important; max-width: none !important; opacity: 1; overflow: visible !important; padding: 0px !important; position: fixed; right: auto !important; top: auto !important; vertical-align: baseline !important; visibility: visible !important; width: auto; z-index: 2147483647; transform: translateX(-50%); box-shadow: rgba(0, 0, 0, 0.5) 0px -4px 12px -4px, rgba(0, 0, 0, 0.3) 0px 4px 8px -3px; border-radius: 5px; background: rgb(250, 250, 250) !important;"><div class="grippy-host"></div><div id="aswift_2_host" style="border: none !important; height: 221px !important; width: 1005px !important; margin: 0px !important; padding: 0px !important; position: relative !important; visibility: visible !important; background-color: transparent !important; display: inline-block !important; inset: auto !important; clear: none !important; float: none !important; max-height: none !important; max-width: none !important; opacity: 1 !important; overflow: visible !important; vertical-align: baseline !important; z-index: auto !important;"><iframe id="aswift_2" name="aswift_2" style="min-height: auto; max-height: none; min-width: auto; max-width: none; width: 1005px !important; display: block; margin: 0px auto; height: 221px !important;" sandbox="allow-forms allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts allow-top-navigation-by-user-activation" width="1005" height="100%" frameborder="0" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" allow="attribution-reporting; run-ad-auction" src="https://pagead2.googlesyndication.com/pagead/html/r20260305/r20190131/zrt_lookup_fy2021.html#RS-0-&amp;adk=1812271801&amp;client=ca-pub-5436783100115706&amp;fa=1&amp;ifi=3&amp;uci=a!3&amp;btvi=1" data-google-container-id="a!3" tabindex="0" title="Advertisement" aria-label="Advertisement" data-google-query-id="CPTHhPqkkJMDFbeUywEd_3cZIg" data-load-complete="true" spellcheck="false"></iframe></div><div id="click-protector" style="position: relative; width: 65px; height: 25px; left: 0px; top: -100%;"></div></ins><script src="blob:https://geometrydashonline.io/b42b7241-67d3-4fb0-ab56-60dce2e85e63" id="a34fcf8bc7430c1979c4b770683745ac"></script><iframe src="https://ep2.adtrafficquality.google/sodar/sodar2/253/runner.html" width="0" height="0" style="display: none;"></iframe></body>
+      <iframe src="https://adfree3kh0.github.io/projects/geodash/index.html"></iframe>
+
+      <button 
+      onclick="iffs('https://adfree3kh0.github.io/projects/geodash/index.html')"
+       class="fullscreen"></button>
+      
+       <script>
+        function iffs(href) {
+      const iframe = document.querySelector("iframe");
+      const stl = iframe.style;
+      stl.border = stl.outline = 'none';
+      stl.width = '100vw';
+      stl.height = '100vh';
+      stl.position = 'fixed';
+      stl.left = stl.right = stl.top = stl.bottom = '0';
+      iframe.src = href;
+      }
+      </script>
+
+<script>
+  document.addEventListener("keydown", 
+  async (e) => { if ("`" == e.key) window.parent.window.location.replace("https://google.com/") });
+</script>
+    
+</body>
+</html>
